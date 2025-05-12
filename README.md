@@ -4,7 +4,7 @@
 **App:**  Cinematch
 -
 
-**Enlace a la app:** [Enlace a Github Pages]()
+**Enlace a la app:** [Enlace a Github Pages](https://bryansebastianruiz.github.io/entrega-final/)
 -
 
 **Enlace a chatgpt:** [Enlace a la conversación de Chatgpt](https://chatgpt.com/share/6822618e-655c-8000-a378-bc1305acd36e)
