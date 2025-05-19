@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles de Película - Cinematch</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1 id="movie-title">Película</h1>
+    <a href="index.html">← Volver</a>
+  </header>
+  <main>
+    <section id="movie-details"></section>
+    <section id="reviews">
+      <h2>Reseñas</h2>
+      <form id="review-form">
+        <textarea placeholder="Escribe tu reseña..." required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div id="review-list"></div>
+    </section>
+  </main>
+  <script src="js/supabase.js"></script>
+  <script src="js/reviews.js"></script>
+</body>
+</html>

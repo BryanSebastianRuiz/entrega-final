@@ -1,0 +1,30 @@
+/* css/styles.css */
+body {
+  background: linear-gradient(to right, #2e003e, #000000);
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, nav, main {
+  padding: 1rem;
+}
+
+nav a {
+  margin-right: 1rem;
+  color: red;
+}
+
+main div {
+  display: inline-block;
+  margin: 1rem;
+  background: #111;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+main div:hover {
+  transform: scale(1.05);
+}
