@@ -1,30 +1,134 @@
-/* css/styles.css */
-body {
-  background: linear-gradient(to right, #2e003e, #000000);
-  color: white;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+/* === CineMatch Estilos === */
+
+/* Colores base */
+:root {
+  --morado: #6a0dad;
+  --azul: #1e3a8a;
+  --rojo: #b91c1c;
+  --negro: #121212;
+  --gris-claro: #e5e7eb;
+  --blanco: #ffffff;
 }
 
-header, nav, main {
-  padding: 1rem;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--negro);
+  color: var(--gris-claro);
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--morado);
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
 
 nav a {
-  margin-right: 1rem;
-  color: red;
+  color: var(--blanco);
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-main div {
-  display: inline-block;
-  margin: 1rem;
-  background: #111;
-  padding: 1rem;
+nav a:hover {
+  color: var(--rojo);
+}
+
+.hero {
+  background: linear-gradient(to right, var(--azul), var(--morado));
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--blanco);
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+main.peliculas {
+  padding: 2rem;
+}
+
+main.peliculas h2 {
+  color: var(--blanco);
+  margin-bottom: 1rem;
+}
+
+.peliculas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #1f1f1f;
   border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
-main div:hover {
+.card:hover {
   transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h3 {
+  color: var(--blanco);
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: var(--gris-claro);
+}
+
+footer {
+  background-color: var(--morado);
+  color: var(--blanco);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Estrellas para calificación (película individual) */
+.estrellas {
+  display: flex;
+  gap: 5px;
+  margin-top: 0.5rem;
+}
+
+.estrellas i {
+  color: gold;
+  font-size: 1.2rem;
 }

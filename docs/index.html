@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cinematch</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineMatch</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Cinematch</h1>
-    <nav>
+  <header class="header">
+    <div class="logo">🎬 CineMatch</div>
+    <nav class="nav">
       <a href="index.html">Inicio</a>
-      <a href="login.html">Iniciar Sesión</a>
+      <a href="#">Películas</a>
+      <a href="#">Series</a>
+      <a href="#">Mi perfil</a>
+      <a href="login.html" class="btn-login">Iniciar sesión</a>
     </nav>
   </header>
-  <main id="movie-list">
-    <!-- Las películas se cargarán aquí dinámicamente -->
+
+  <main class="main">
+    <section class="hero">
+      <h1>Descubre, opina y comparte sobre tus películas favoritas</h1>
+      <p>Explora reseñas, mira lo que piensan otros usuarios y contribuye con tu opinión.</p>
+    </section>
+
+    <section class="movie-section">
+      <h2>Películas recomendadas</h2>
+      <div class="movie-grid" id="movie-list">
+        <!-- Las películas se cargarán dinámicamente aquí -->
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 CineMatch. Todos los derechos reservados.</p>
+  </footer>
+
   <script src="js/supabase.js"></script>
   <script src="js/movies.js"></script>
 </body>
