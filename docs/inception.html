@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inception</title>
+  <link rel="stylesheet" href="css/peliculas-series.css" />
+  <style>
+    /* Este estilo es solo para que veas la estructura, pero se recomienda pasarlo a 'peliculas-series.css' */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: url('img/inception.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      backdrop-filter: blur(15px);
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      padding: 30px;
+      color: white;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .poster {
+      flex: 0 0 250px;
+    }
+
+    .poster img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px black;
+    }
+
+    .info {
+      flex: 1;
+      margin-left: 30px;
+    }
+
+    .title {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .meta {
+      margin-top: 5px;
+      font-size: 1.1em;
+      color: #ccc;
+    }
+
+    .genres {
+      margin: 15px 0;
+    }
+
+    .genre {
+      display: inline-block;
+      background: #444;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin: 3px;
+    }
+
+    .plot {
+      margin: 20px 0;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      max-width: 800px;
+    }
+
+    .credits p {
+      margin: 5px 0;
+    }
+
+    .rating {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: gold;
+    }
+
+    header.site-header, footer.site-footer {
+      background-color: #111;
+      color: white;
+      padding: 15px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    header.site-header .container, footer.site-footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    header.site-header h1 {
+      font-size: 1.8em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      background-color: #f5c518;
+      color: black;
+    }
+
+    .btn-login {
+      background-color: #f5c518;
+      color: black;
+      font-weight: bold;
+    }
+
+    footer.site-footer p {
+      margin: 5px 0;
+      font-size: 0.9em;
+    }
+
+    footer.site-footer a {
+      color: #f5c518;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>CineMatch</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="peliculas.html" class="active">Películas</a></li>
+          <li><a href="series.html">Series</a></li>
+          <li><a href="perfil.html">Mi Perfil</a></li>
+          <li><a href="login.html" class="btn-login">Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="poster">
+      <img src="img/inception.jpg" alt="Inception Poster" />
+    </div>
+    <div class="info">
+      <div class="title">Inception</div>
+      <div class="meta">2010 · PG-13 · 2h 28min</div>
+
+      <div class="genres">
+        <span class="genre">Action</span>
+        <span class="genre">Adventure</span>
+        <span class="genre">Sci-Fi</span>
+      </div>
+
+      <div class="plot">
+        Dom Cobb es un ladrón con la rara habilidad de entrar en los sueños de las personas y robar sus secretos del subconsciente. Su habilidad le ha convertido en un codiciado jugador en el mundo del espionaje corporativo, pero también le ha costado todo lo que ama.
+      </div>
+
+      <div class="credits">
+        <p><strong>Dirección:</strong> Christopher Nolan</p>
+        <p><strong>Guionistas:</strong> Christopher Nolan</p>
+        <p><strong>Elenco:</strong> Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy</p>
+      </div>
+
+      <div class="rating">⭐ 8.8/10</div>
+    </div>
+  </div>
+
+  <div style="padding: 40px; color: white; position: relative; z-index: 1; max-width: 1200px; margin: auto;">
+
+    <div style="background: #f5c518; color: black; padding: 10px 20px; font-weight: bold; border-radius: 5px; width: fit-content; margin-bottom: 30px;">
+      Premios: 4 premios Óscar y 152 nominaciones en total
+    </div>
+
+    <h2>Videos</h2>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/YoHD9XEInc0" title="Trailer Oficial Inception" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/8hP9D6kZseM" title="Trailer 2" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/66TuSJo4dZM" title="Escenas" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <h2>Fotos</h2>
+    <div style="display: flex; gap: 15px; overflow-x: auto; margin-bottom: 30px;">
+      <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNl5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 1" />
+      <img src="https://m.media-amazon.com/images/M/MV5BNzA5ZDg2NjEtNzE0Zi00MTlkLWI2MDMtMWYzMTA2ODIxMTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 2" />
+      <img src="https://m.media-amazon.com/images/M/MV5BMjA0NDU2NTM0NF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 3" />
+      <img src="https://m.media-amazon.com/images/M/MV5BN2MzZjFkNjgtMjg5Yy00NzU0LWI0NGQtNzZkN2RkYjI3MGY0XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 4" />
+    </div>
+
+    <h2>Elenco principal</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+      <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Leonardo_DiCaprio_66ème_Festival_de_Venise_%28Mostra%29.jpg" style="width: 100px; border-radius: 50%;" alt="Leonardo DiCaprio" /><br><strong>Leonardo DiCaprio</strong><br>Cobb</div>
+      <div><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Joseph_Gordon-Levitt_by_Gage_Skidmore_2.jpg" style="width: 100px; border-radius: 50%;" alt="Joseph Gordon-Levitt" /><br><strong>Joseph Gordon-Levitt</strong><br>Arthur</div>
+      <div><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Elliot_Page_2016.jpg" style="width: 100px; border-radius: 50%;" alt="Ellen Page" /><br><strong>Ellen Page</strong><br>Ariadne</div>
+      <div><img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Tom_Hardy_3,_2015.jpg" style="width: 100px; border-radius: 50%;" alt="Tom Hardy" /><br><strong>Tom Hardy</strong><br>Eames</div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 CineMatch. Todos los derechos reservados.</p>
+      <p>
+        <a href="#">Términos y condiciones</a> |
+        <a href="#">Política de privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Interstellar</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: url('img/interstellar.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      backdrop-filter: blur(15px);
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      padding: 30px;
+      color: white;
+    }
+
+    .poster {
+      flex: 0 0 250px;
+    }
+
+    .poster img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px black;
+    }
+
+    .info {
+      flex: 1;
+      margin-left: 30px;
+    }
+
+    .title {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .meta {
+      margin-top: 5px;
+      font-size: 1.1em;
+      color: #ccc;
+    }
+
+    .genres {
+      margin: 15px 0;
+    }
+
+    .genre {
+      display: inline-block;
+      background: #444;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin: 3px;
+    }
+
+    .plot {
+      margin: 20px 0;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      max-width: 800px;
+    }
+
+    .credits p {
+      margin: 5px 0;
+    }
+
+    .rating {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>CineMatch</h1>
+      <nav>
+        <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="peliculas.html" class="active">Películas</a></li>
+        <li><a href="series.html">Series</a></li>
+        <li><a href="perfil.html">Mi Perfil</a></li>
+        <li><a href="login.html" class="btn-login">Iniciar sesión</a></li>
+      </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="poster">
+      <img src="img/interstellar.jpg" alt="Interstellar Poster">
+    </div>
+    <div class="info">
+      <div class="title">Interstellar</div>
+      <div class="meta">2014 · B · 2h 49min</div>
+
+      <div class="genres">
+        <span class="genre">Adventure</span>
+        <span class="genre">Drama</span>
+        <span class="genre">Sci-Fi</span>
+      </div>
+
+      <div class="plot">
+        Un grupo de exploradores utiliza un agujero de gusano recientemente descubierto para superar las limitaciones de los viajes espaciales humanos y conquistar las vastas distancias involucradas en un viaje interestelar.
+      </div>
+
+      <div class="credits">
+        <p><strong>Dirección:</strong> Christopher Nolan</p>
+        <p><strong>Guionistas:</strong> Jonathan Nolan, Christopher Nolan</p>
+        <p><strong>Elenco:</strong> Matthew McConaughey, Anne Hathaway, Jessica Chastain, Michael Caine</p>
+      </div>
+
+      <div class="rating">⭐ 8.6/10</div>
+    </div>
+  </div>
+
+<div style="padding: 40px; color: white; position: relative; z-index: 1; max-width: 1200px; margin: auto;">
+
+  <div style="background: #f5c518; color: black; padding: 10px 20px; font-weight: bold; border-radius: 5px; width: fit-content; margin-bottom: 30px;">
+    Premios: 44 premios ganados y 148 nominaciones en total
+  </div>
+
+  <h2>Videos</h2>
+  <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/zSWdZVtXT7E" title="Trailer Oficial" frameborder="0" allowfullscreen></iframe>
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/0vxOhd4qlnA" title="Trailer 2" frameborder="0" allowfullscreen></iframe>
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/Lm8p5rlrSkY" title="Final Trailer" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <h2>Fotos</h2>
+  <div style="display: flex; gap: 15px; overflow-x: auto; margin-bottom: 30px;">
+    <img src="https://m.media-amazon.com/images/M/MV5BMjIxNTU4MzY4Nl5BMl5BanBnXkFtZTgwNjU2NTM2MjE@._V1_.jpg" style="height: 120px; border-radius: 5px;">
+    <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3ZWUtMmYwOS00NzM3LTk5ZjAtYmY5YjEyZmY4ZWRmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" style="height: 120px; border-radius: 5px;">
+    <img src="https://m.media-amazon.com/images/M/MV5BYzY4OGQ3YjUtZjBlZi00NDFlLThkM2YtMzVhMGMzMWUxNGFjXkEyXkFqcGdeQXVyNDQ2MTMzODA@._V1_.jpg" style="height: 120px; border-radius: 5px;">
+    <img src="https://m.media-amazon.com/images/M/MV5BZGUyMWFhZGUtMzgxZS00ZDU5LWE4ZGMtYTI1MjY2NjYxNzM1XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg" style="height: 120px; border-radius: 5px;">
+  </div>
+
+  <h2>Elenco principal</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Matthew_McConaughey_2019.jpg" style="width: 100px; border-radius: 50%;"><br><strong>Matthew McConaughey</strong><br>Cooper</div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Anne_Hathaway_FF_2011_Shankbone.JPG" style="width: 100px; border-radius: 50%;"><br><strong>Anne Hathaway</strong><br>Brand</div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Jessica_Chastain_2015.jpg" style="width: 100px; border-radius: 50%;"><br><strong>Jessica Chastain</strong><br>Murph</div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Michael_Caine_2015.jpg" style="width: 100px; border-radius: 50%;"><br><strong>Michael Caine</strong><br>Professor Brand</div>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Mackenzie_Foy_Cannes_2014.jpg" style="width: 100px; border-radius: 50%;"><br><strong>Mackenzie Foy</strong><br>Young Murph</div>
+  </div>
+
+</div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 CineMatch. Todos los derechos reservados.</p>
+      <p>
+        <a href="#">Términos y condiciones</a> |
+        <a href="#">Política de privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
