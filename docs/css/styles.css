@@ -132,3 +132,93 @@ footer {
   color: gold;
   font-size: 1.2rem;
 }
+
+/* === Estilos para register.html y login.html === */
+
+.form-container {
+  max-width: 400px;
+  background-color: #1f1f1f;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: var(--blanco);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+label {
+  color: var(--gris-claro);
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--gris-claro);
+  background-color: #2b2b2b;
+  color: var(--blanco);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--morado);
+  outline: none;
+}
+
+button {
+  background-color: var(--morado);
+  color: var(--blanco);
+  padding: 0.9rem 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--azul);
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--gris-claro);
+  font-size: 0.9rem;
+}
+
+.form-footer a {
+  color: var(--morado);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.form-footer a:hover {
+  color: var(--rojo);
+}
+
+/* Mensajes de error o validación */
+.error-message {
+  color: var(--rojo);
+  font-size: 0.85rem;
+  margin-top: -0.75rem;
+}

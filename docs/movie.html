@@ -1,28 +1,63 @@
+<!-- movie.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalles de Película - Cinematch</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineMatch | Detalles de Película</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://kit.fontawesome.com/a2e0c6ad51.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <h1 id="movie-title">Película</h1>
-    <a href="index.html">← Volver</a>
+    <div class="logo">🎬 CineMatch</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
   </header>
-  <main>
-    <section id="movie-details"></section>
-    <section id="reviews">
-      <h2>Reseñas</h2>
-      <form id="review-form">
-        <textarea placeholder="Escribe tu reseña..." required></textarea>
-        <button type="submit">Enviar</button>
+
+  <main class="peliculas">
+    <section class="detalle-pelicula">
+      <div class="info-pelicula">
+        <img id="poster" src="assets/posters/default.jpg" alt="Poster Película">
+        <div class="texto">
+          <h2 id="titulo">Título de la Película</h2>
+          <p id="descripcion">Aquí va la sinopsis o descripción de la película. Puedes incluir detalles como el género, duración, director, etc.</p>
+          <div class="estrellas" id="rating-estrellas">
+            <!-- Estrellas dinámicas -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion-reseñas">
+      <h3>Reseñas</h3>
+      <div id="lista-reseñas">
+        <p>Aún no hay reseñas. ¡Sé el primero en comentar!</p>
+      </div>
+
+      <form id="form-reseña">
+        <textarea id="comentario" rows="4" placeholder="Escribe tu opinión aquí..." required></textarea>
+        <div class="estrellas" id="seleccionar-estrellas">
+          <!-- Estrellas seleccionables -->
+          <i class="fa-regular fa-star" data-valor="1"></i>
+          <i class="fa-regular fa-star" data-valor="2"></i>
+          <i class="fa-regular fa-star" data-valor="3"></i>
+          <i class="fa-regular fa-star" data-valor="4"></i>
+          <i class="fa-regular fa-star" data-valor="5"></i>
+        </div>
+        <button type="submit">Enviar reseña</button>
       </form>
-      <div id="review-list"></div>
     </section>
   </main>
-  <script src="js/supabase.js"></script>
-  <script src="js/reviews.js"></script>
+
+  <footer>
+    <p>&copy; 2025 CineMatch - Opiniones auténticas para amantes del cine</p>
+  </footer>
+
+  <script type="module" src="js/reviews.js"></script>
 </body>
 </html>
