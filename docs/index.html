@@ -1,43 +1,330 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CineMatch</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="logo">🎬 CineMatch</div>
-    <nav class="nav">
-      <a href="index.html">Inicio</a>
-      <a href="#">Películas</a>
-      <a href="#">Series</a>
-      <a href="#">Mi perfil</a>
-      <a href="login.html" class="btn-login">Iniciar sesión</a>
+  <header>
+    <div class="logo">CineMatch</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="peliculas.html" class="active">Películas</a></li>
+        <li><a href="series.html">Series</a></li>
+        <li><a href="perfil.html">Mi Perfil</a></li>
+        <li><a href="login.html" class="btn-login">Iniciar sesión</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="main">
-    <section class="hero">
-      <h1>Descubre, opina y comparte sobre tus películas favoritas</h1>
-      <p>Explora reseñas, mira lo que piensan otros usuarios y contribuye con tu opinión.</p>
-    </section>
+  <section class="hero">
+    <h1>Descubre películas y series que amarás</h1>
+    <p>Personaliza tus gustos, califica y obtén recomendaciones únicas</p>
+  </section>
 
-    <section class="movie-section">
-      <h2>Películas recomendadas</h2>
-      <div class="movie-grid" id="movie-list">
-        <!-- Las películas se cargarán dinámicamente aquí -->
-      </div>
-    </section>
+  <main class="peliculas">
+    <h2>Top recomendadas</h2>
+    <div class="peliculas-grid">
+
+  <div class="card">
+    <img src="img/interstellar.jpg" alt="Interstellar">
+    <div class="card-content">
+      <h3>Interstellar</h3>
+      <p>Una odisea espacial sobre el amor, el tiempo y la supervivencia.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/inception.jpg" alt="Inception">
+    <div class="card-content">
+      <h3>Inception</h3>
+      <p>Viajes en el subconsciente para robar secretos del alma humana.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/dark.jpg" alt="Dark">
+    <div class="card-content">
+      <h3>Dark</h3>
+      <p>Una serie alemana que mezcla viajes en el tiempo y misterio.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/dune.jpg" alt="Dune">
+    <div class="card-content">
+      <h3>Dune</h3>
+      <p>Una epopeya de ciencia ficción en un mundo de desiertos y poder.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/oppenheimer.jpg" alt="Oppenheimer">
+    <div class="card-content">
+      <h3>Oppenheimer</h3>
+      <p>La historia del creador de la bomba atómica en la Segunda Guerra Mundial.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/breakingbad.jpg" alt="Breaking Bad">
+    <div class="card-content">
+      <h3>Breaking Bad</h3>
+      <p>Un profesor de química se convierte en capo de la droga.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/strangerthings.jpg" alt="Stranger Things">
+    <div class="card-content">
+      <h3>Stranger Things</h3>
+      <p>Un grupo de amigos se enfrenta a criaturas de otra dimensión.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/avatar2.jpg" alt="Avatar: El Camino del Agua">
+    <div class="card-content">
+      <h3>Avatar: El Camino del Agua</h3>
+      <p>Regreso a Pandora, ahora explorando sus océanos y su lucha por la paz.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/thebatman.jpg" alt="The Batman">
+    <div class="card-content">
+      <h3>The Batman</h3>
+      <p>Una nueva versión oscura y detectivesca del Caballero de la Noche.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/spiderman.jpg" alt="Spider-Man: No Way Home">
+    <div class="card-content">
+      <h3>Spider-Man: No Way Home</h3>
+      <p>El multiverso se desata cuando Peter Parker pide ayuda a Doctor Strange.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/parasite.jpg" alt="Parasite">
+    <div class="card-content">
+      <h3>Parasite</h3>
+      <p>Una sátira social coreana ganadora del Oscar por su crítica ingeniosa.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="img/thewitcher.jpg" alt="The Witcher">
+    <div class="card-content">
+      <h3>The Witcher</h3>
+      <p>Geralt de Rivia, un cazador de monstruos, en un mundo de magia y caos.</p>
+      <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+    </div>
+  </div>
+
+  <div class="card">
+  <img src="img/fightclub.jpg" alt="Fight Club">
+  <div class="card-content">
+    <h3>Fight Club</h3>
+    <p>Una crítica a la sociedad moderna a través de una organización clandestina.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/blackmirror.jpg" alt="Black Mirror">
+  <div class="card-content">
+    <h3>Black Mirror</h3>
+    <p>Historias independientes que muestran el lado oscuro de la tecnología.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/thecrown.jpg" alt="The Crown">
+  <div class="card-content">
+    <h3>The Crown</h3>
+    <p>La vida y el reinado de la Reina Isabel II contados de forma majestuosa.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/theboys.jpg" alt="The Boys">
+  <div class="card-content">
+    <h3>The Boys</h3>
+    <p>Superhéroes corruptos enfrentados por un grupo clandestino de vigilantes.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/matrix.jpg" alt="The Matrix">
+  <div class="card-content">
+    <h3>The Matrix</h3>
+    <p>Un hacker descubre la realidad simulada en la que vive la humanidad.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/thelastofus.jpg" alt="The Last of Us">
+  <div class="card-content">
+    <h3>The Last of Us</h3>
+    <p>Una historia postapocalíptica basada en el videojuego del mismo nombre.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/arcane.jpg" alt="Arcane">
+  <div class="card-content">
+    <h3>Arcane</h3>
+    <p>Una animación impresionante basada en el universo de League of Legends.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/squidgame.jpg" alt="El Juego del Calamar">
+  <div class="card-content">
+    <h3>El Juego del Calamar</h3>
+    <p>Concursantes luchan por sobrevivir en juegos infantiles con consecuencias fatales.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/houseofcards.jpg" alt="House of Cards">
+  <div class="card-content">
+    <h3>House of Cards</h3>
+    <p>Intrigas políticas en Washington con un protagonista manipulador.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/blackpanther.jpg" alt="Black Panther">
+  <div class="card-content">
+    <h3>Black Panther</h3>
+    <p>El legado de Wakanda y su rey en una historia poderosa y culturalmente rica.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/lalaland.jpg" alt="La La Land">
+  <div class="card-content">
+    <h3>La La Land</h3>
+    <p>Un musical moderno sobre sueños, amor y sacrificio en Los Ángeles.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/peakyblinders.jpg" alt="Peaky Blinders">
+  <div class="card-content">
+    <h3>Peaky Blinders</h3>
+    <p>Una familia mafiosa en el Birmingham de la posguerra busca poder a toda costa.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/you.jpg" alt="You">
+  <div class="card-content">
+    <h3>You</h3>
+    <p>Un romance obsesivo se convierte en una peligrosa red de mentiras.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/theoffice.jpg" alt="The Office">
+  <div class="card-content">
+    <h3>The Office</h3>
+    <p>Una comedia icónica sobre la vida diaria en una oficina muy peculiar.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/sherlock.jpg" alt="Sherlock">
+  <div class="card-content">
+    <h3>Sherlock</h3>
+    <p>Una versión moderna del detective más famoso del mundo.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/bojack.jpg" alt="BoJack Horseman">
+  <div class="card-content">
+    <h3>BoJack Horseman</h3>
+    <p>Una sátira animada sobre la fama, la depresión y la redención.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/loki.jpg" alt="Loki">
+  <div class="card-content">
+    <h3>Loki</h3>
+    <p>El dios del engaño enfrenta el caos del multiverso tras robar el Teseracto.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/wednesday.jpg" alt="Merlina">
+  <div class="card-content">
+    <h3>Merlina</h3>
+    <p>Merlina Addams asiste a una academia especial mientras resuelve un misterio.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>☆</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/edward.jpg" alt="El Joven Manos de Tijera">
+  <div class="card-content">
+    <h3>El Joven Manos de Tijera</h3>
+    <p>Una historia de amor y aceptación con un personaje inolvidable.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+<div class="card">
+  <img src="img/drive.jpg" alt="Drive">
+  <div class="card-content">
+    <h3>Drive</h3>
+    <p>Un conductor solitario se ve arrastrado a un mundo de crimen y venganza.</p>
+    <div class="estrellas"><i>★</i><i>★</i><i>★</i><i>★</i><i>☆</i></div>
+  </div>
+</div>
+
+
+</div>
+
   </main>
 
-  <footer class="footer">
+  <footer>
     <p>&copy; 2025 CineMatch. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="js/supabase.js"></script>
-  <script src="js/movies.js"></script>
 </body>
 </html>
