@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Inception</title>
-  <link rel="stylesheet" href="css/peliculas-series.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <style>
-    /* Este estilo es solo para que veas la estructura, pero se recomienda pasarlo a 'peliculas-series.css' */
-
     * {
       margin: 0;
       padding: 0;
@@ -15,7 +13,7 @@
     }
 
     body {
-      background: url('img/inception.jpg') no-repeat center center fixed;
+      background: url('img/interstellar.jpg') no-repeat center center fixed;
       background-size: cover;
       position: relative;
     }
@@ -23,7 +21,10 @@
     body::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       backdrop-filter: blur(15px);
       background-color: rgba(0, 0, 0, 0.6);
       z-index: 0;
@@ -35,8 +36,6 @@
       display: flex;
       padding: 30px;
       color: white;
-      max-width: 1200px;
-      margin: auto;
     }
 
     .poster {
@@ -94,63 +93,6 @@
       margin-top: 20px;
       font-size: 1.2em;
       color: gold;
-    }
-
-    header.site-header, footer.site-footer {
-      background-color: #111;
-      color: white;
-      padding: 15px 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    header.site-header .container, footer.site-footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    header.site-header h1 {
-      font-size: 1.8em;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-
-    nav ul li a.active,
-    nav ul li a:hover {
-      background-color: #f5c518;
-      color: black;
-    }
-
-    .btn-login {
-      background-color: #f5c518;
-      color: black;
-      font-weight: bold;
-    }
-
-    footer.site-footer p {
-      margin: 5px 0;
-      font-size: 0.9em;
-    }
-
-    footer.site-footer a {
-      color: #f5c518;
-      text-decoration: none;
     }
   </style>
 </head>
