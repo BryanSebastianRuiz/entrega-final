@@ -5,64 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perfil - CineMatch</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    .input-group { margin-bottom: 15px; }
+    label { display: block; font-weight: bold; margin-bottom: 5px; }
+    input, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+    textarea { resize: vertical; min-height: 80px; }
+    .perfil-info { margin-bottom: 30px; }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">CineMatch</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="peliculas.html" class="active">Películas</a></li>
-        <li><a href="series.html">Series</a></li>
-        <li><a href="perfil.html">Mi Perfil</a></li>
-        <li><a href="login.html" class="btn-login">Iniciar sesión</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main class="perfil">
-    <section class="perfil-info">
-      <h2>Mi Perfil</h2>
-      <div class="perfil-card">
-        <img src="img/avatar.png" alt="Avatar del usuario" class="avatar" />
-        <div class="info">
-          <p><strong>Usuario:</strong> cinefan123</p>
-          <p><strong>Correo:</strong> cinefan@example.com</p>
-          <p><strong>Miembro desde:</strong> Enero 2024</p>
-        </div>
+<header>
+  <div class="logo">CineMatch</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="peliculas.html">Películas</a></li>
+      <li><a href="series.html">Series</a></li>
+      <li><a href="perfil.html" class="active">Mi Perfil</a></li>
+      <li><a href="login.html" class="btn-login">Iniciar sesión</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="perfil-info">
+    <h2>Mi Perfil</h2>
+    <p><strong>Nombre:</strong> <span id="nombreUsuario">Cargando...</span></p>
+    <p><strong>Correo:</strong> <span id="correoUsuario">Cargando...</span></p>
+  </section>
+
+  <section class="perfil-editar">
+    <h2>Editar Información Personal</h2>
+    <form id="perfilForm">
+      <div class="input-group">
+        <label for="biografia">Biografía</label>
+        <textarea id="biografia" name="biografia" placeholder="Cuéntanos sobre ti..."></textarea>
       </div>
-    </section>
-
-    <section class="favoritos">
-      <h2>Mis Favoritos</h2>
-      <div class="peliculas-grid">
-        <div class="card">
-          <img src="img/pelicula1.jpg" alt="Favorito 1" />
-          <div class="card-content">
-            <h3>La Gran Aventura</h3>
-            <p>Película favorita</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="img/serie2.jpg" alt="Favorito 2" />
-          <div class="card-content">
-            <h3>Comedia Urbana</h3>
-            <p>Serie favorita</p>
-          </div>
-        </div>
-        <!-- Más favoritos -->
+      <div class="input-group">
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" min="1" max="120" placeholder="Tu edad" />
       </div>
-    </section>
-  </main>
+      <div class="input-group">
+        <label for="peliculasFavoritas">Películas Favoritas</label>
+        <input type="text" id="peliculasfavoritas" name="peliculasfavoritas" placeholder="Ej: Inception, Matrix, Parasite" />
+      </div>
+      <button type="submit">Guardar Cambios</button>
+    </form>
+  </section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 CineMatch. Todos los derechos reservados.</p>
-      <p>
-        <a href="terminos.html">Términos y condiciones</a> |
-        <a href="privacidad.html">Política de privacidad</a>
-      </p>
-    </div>
-  </footer>
+  <button id="btnLogout" style="margin-top: 20px;">Cerrar sesión</button>
+</main>
+
+<script>
+  // Configuración de Supabase
+  const SUPABASE_URL = 'https://bkagpatfftjnxxldwzqm.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJrYWdwYXRmZnRqbnh4bGR3enFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyOTg1NDAsImV4cCI6MjA2Mzg3NDU0MH0.KZZlK_KNB6_Rq1Za2X9kk0uvZRuhpjtBv7D1KCLsgdY';
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Cargar perfil al iniciar sesión
+  async function cargarPerfil() {
+    const { data: { user }, error } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      alert('No estás logueado.');
+      window.location.href = 'login.html';
+      return;
+    }
+
+    document.getElementById('nombreUsuario').textContent = user.user_metadata?.full_name || user.email;
+    document.getElementById('correoUsuario').textContent = user.email;
+
+    const { data: perfil, error: errorPerfil } = await supabase
+      .from('perfiles')
+      .select('biografia, edad, peliculasfavoritas')
+      .eq('id', user.id)
+      .single();
+
+    if (perfil) {
+      if (perfil.biografia) document.getElementById('biografia').value = perfil.biografia;
+      if (perfil.edad) document.getElementById('edad').value = perfil.edad;
+      if (perfil.peliculasfavoritas) document.getElementById('peliculasfavoritas').value = perfil.peliculasfavoritas;
+    }
+  }
+
+  // Guardar cambios
+  document.getElementById('perfilForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const biografia = document.getElementById('biografia').value;
+    const edad = parseInt(document.getElementById('edad').value);
+    const peliculasFavoritas = document.getElementById('peliculasfavoritas').value;
+
+    const { data: { user }, error } = await supabase.auth.getUser();
+    if (error || !user) {
+      alert('Usuario no autenticado');
+      return;
+    }
+
+    const { error: upsertError } = await supabase
+      .from('perfiles')
+      .upsert({
+        id: user.id,
+        biografia,
+        edad,
+        peliculasfavoritas
+      });
+
+    if (upsertError) {
+      alert('Error al guardar: ' + upsertError.message);
+    } else {
+      alert('Perfil actualizado con éxito');
+    }
+  });
+
+  // Cerrar sesión
+  document.getElementById('btnLogout').addEventListener('click', async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      alert('Error al cerrar sesión: ' + error.message);
+    } else {  
+      alert('Has cerrado sesión correctamente.');
+      window.location.href = 'login.html';
+    }
+  });
+
+  // Verifica si hay usuario logueado al cargar la página
+  document.addEventListener('DOMContentLoaded', async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      window.location.href = 'login.html';
+    } else {
+      cargarPerfil();
+    }
+  });
+</script>
+
 </body>
 </html>
