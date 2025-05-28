@@ -7,11 +7,30 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    .input-group { margin-bottom: 15px; }
-    label { display: block; font-weight: bold; margin-bottom: 5px; }
-    input, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
-    textarea { resize: vertical; min-height: 80px; }
-    .perfil-info { margin-bottom: 30px; }
+    .input-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.3s ease;
+}
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+    /* Quitamos textarea, porque ya no la usamos */
   </style>
 </head>
 <body>
@@ -40,15 +59,19 @@
     <h2>Editar Información Personal</h2>
     <form id="perfilForm">
       <div class="input-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" />
+      </div>
+      <div class="input-group">
         <label for="biografia">Biografía</label>
-        <textarea id="biografia" name="biografia" placeholder="Cuéntanos sobre ti..."></textarea>
+        <input type="text" id="biografia" name="biografia" placeholder="Cuéntanos sobre ti..." />
       </div>
       <div class="input-group">
         <label for="edad">Edad</label>
-        <input type="number" id="edad" name="edad" min="1" max="120" placeholder="Tu edad" />
+        <input type="text" id="edad" name="edad" placeholder="Ingresa tu edad" />
       </div>
       <div class="input-group">
-        <label for="peliculasFavoritas">Películas Favoritas</label>
+        <label for="peliculasfavoritas">Películas Favoritas</label>
         <input type="text" id="peliculasfavoritas" name="peliculasfavoritas" placeholder="Ej: Inception, Matrix, Parasite" />
       </div>
       <button type="submit">Guardar Cambios</button>
@@ -74,19 +97,30 @@
       return;
     }
 
-    document.getElementById('nombreUsuario').textContent = user.user_metadata?.full_name || user.email;
+    document.getElementById('nombreUsuario').textContent = 'Cargando...';
     document.getElementById('correoUsuario').textContent = user.email;
 
+    // Obtener datos del perfil (incluye nombre)
     const { data: perfil, error: errorPerfil } = await supabase
       .from('perfiles')
-      .select('biografia, edad, peliculasfavoritas')
+      .select('nombre, biografia, edad, peliculasfavoritas')
       .eq('id', user.id)
       .single();
 
+    if (errorPerfil) {
+      console.error('Error cargando perfil:', errorPerfil);
+      document.getElementById('nombreUsuario').textContent = user.user_metadata?.full_name || user.email;
+      return;
+    }
+
+    // Mostrar nombre real, correo y llenar formulario
+    document.getElementById('nombreUsuario').textContent = perfil?.nombre || user.user_metadata?.full_name || user.email;
+
     if (perfil) {
-      if (perfil.biografia) document.getElementById('biografia').value = perfil.biografia;
-      if (perfil.edad) document.getElementById('edad').value = perfil.edad;
-      if (perfil.peliculasfavoritas) document.getElementById('peliculasfavoritas').value = perfil.peliculasfavoritas;
+      document.getElementById('nombre').value = perfil.nombre || '';
+      document.getElementById('biografia').value = perfil.biografia || '';
+      document.getElementById('edad').value = perfil.edad || '';
+      document.getElementById('peliculasfavoritas').value = perfil.peliculasfavoritas || '';
     }
   }
 
@@ -94,9 +128,10 @@
   document.getElementById('perfilForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const biografia = document.getElementById('biografia').value;
+    const nombre = document.getElementById('nombre').value.trim();
+    const biografia = document.getElementById('biografia').value.trim();
     const edad = parseInt(document.getElementById('edad').value);
-    const peliculasFavoritas = document.getElementById('peliculasfavoritas').value;
+    const peliculasFavoritas = document.getElementById('peliculasfavoritas').value.trim();
 
     const { data: { user }, error } = await supabase.auth.getUser();
     if (error || !user) {
@@ -108,15 +143,17 @@
       .from('perfiles')
       .upsert({
         id: user.id,
+        nombre,
         biografia,
         edad,
-        peliculasfavoritas
+        peliculasfavoritas: peliculasFavoritas
       });
 
     if (upsertError) {
       alert('Error al guardar: ' + upsertError.message);
     } else {
       alert('Perfil actualizado con éxito');
+      document.getElementById('nombreUsuario').textContent = nombre || user.email;
     }
   });
 
