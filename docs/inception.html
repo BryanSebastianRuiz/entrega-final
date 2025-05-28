@@ -5,99 +5,32 @@
   <title>Inception</title>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: url('img/interstellar.jpg') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      backdrop-filter: blur(15px);
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      padding: 30px;
-      color: white;
-    }
-
-    .poster {
-      flex: 0 0 250px;
-    }
-
-    .poster img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px black;
-    }
-
-    .info {
-      flex: 1;
-      margin-left: 30px;
-    }
-
-    .title {
-      font-size: 3em;
-      font-weight: bold;
-    }
-
-    .meta {
-      margin-top: 5px;
-      font-size: 1.1em;
-      color: #ccc;
-    }
-
-    .genres {
-      margin: 15px 0;
-    }
-
-    .genre {
-      display: inline-block;
-      background: #444;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      margin: 3px;
-    }
-
-    .plot {
-      margin: 20px 0;
-      font-size: 1.2em;
-      line-height: 1.6em;
-      max-width: 800px;
-    }
-
-    .credits p {
-      margin: 5px 0;
-    }
-
-    .rating {
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: gold;
-    }
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+    body {background: url('img/inception.jpg') no-repeat center center fixed; background-size: cover; position: relative;}
+    body::before {content: ""; position: absolute; top:0; left:0; right:0; bottom:0; backdrop-filter: blur(15px); background-color: rgba(0,0,0,0.6); z-index: 0;}
+    .container {position: relative; z-index: 1; display: flex; padding: 30px; color: white;}
+    .poster {flex: 0 0 250px;}
+    .poster img {width: 100%; border-radius: 10px; box-shadow: 0 0 20px black;}
+    .info {flex: 1; margin-left: 30px;}
+    .title {font-size: 3em; font-weight: bold;}
+    .meta {margin-top: 5px; font-size: 1.1em; color: #ccc;}
+    .genres {margin: 15px 0;}
+    .genre {display: inline-block; background: #444; color: white; padding: 6px 10px; border-radius: 20px; font-size: 0.9em; margin: 3px;}
+    .plot {margin: 20px 0; font-size: 1.2em; line-height: 1.6em; max-width: 800px;}
+    .credits p {margin: 5px 0;}
+    .rating {margin-top: 20px; font-size: 1.2em; color: gold;}
+    .site-header .container {justify-content: space-between; align-items: center;}
+    .site-header nav ul {list-style: none; display: flex; gap: 20px;}
+    .site-header nav a {color: white; text-decoration: none; font-weight: bold;}
+    section {padding: 40px; color: white; position: relative; z-index: 1; max-width: 1200px; margin: auto;}
+    #messages {height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; color: white; margin-bottom: 10px; background: rgba(0,0,0,0.5); border-radius: 8px;}
+    #message-form {display: flex; gap: 10px; flex-wrap: wrap;}
+    #message-form input[type="text"] {padding: 10px; border-radius: 5px; border: none; flex-grow: 1; min-width: 150px;}
+    .message {background: rgba(255, 255, 255, 0.1); padding: 8px 12px; border-radius: 10px; margin-bottom: 8px; word-wrap: break-word; display: flex; gap: 10px; align-items: center;}
+    .username-link {color: purple; font-weight: bold; cursor: pointer; text-decoration: underline; flex-shrink: 0;}
   </style>
 </head>
 <body>
-
   <header class="site-header">
     <div class="container">
       <h1>CineMatch</h1>
@@ -119,7 +52,7 @@
     </div>
     <div class="info">
       <div class="title">Inception</div>
-      <div class="meta">2010 · PG-13 · 2h 28min</div>
+      <div class="meta">2010 · B · 2h 28min</div>
 
       <div class="genres">
         <span class="genre">Action</span>
@@ -128,12 +61,12 @@
       </div>
 
       <div class="plot">
-        Dom Cobb es un ladrón con la rara habilidad de entrar en los sueños de las personas y robar sus secretos del subconsciente. Su habilidad le ha convertido en un codiciado jugador en el mundo del espionaje corporativo, pero también le ha costado todo lo que ama.
+        Un ladrón que roba secretos corporativos a través del uso de la tecnología de sueño compartido recibe la tarea inversa: plantar una idea en la mente de un CEO, pero su trágico pasado podría condenar el proyecto y a su equipo.
       </div>
 
       <div class="credits">
         <p><strong>Dirección:</strong> Christopher Nolan</p>
-        <p><strong>Guionistas:</strong> Christopher Nolan</p>
+        <p><strong>Guion:</strong> Christopher Nolan</p>
         <p><strong>Elenco:</strong> Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy</p>
       </div>
 
@@ -142,45 +75,193 @@
   </div>
 
   <div style="padding: 40px; color: white; position: relative; z-index: 1; max-width: 1200px; margin: auto;">
-
     <div style="background: #f5c518; color: black; padding: 10px 20px; font-weight: bold; border-radius: 5px; width: fit-content; margin-bottom: 30px;">
-      Premios: 4 premios Óscar y 152 nominaciones en total
+      Premios: 4 Oscar. 157 premios ganados y 220 nominaciones en total
     </div>
 
     <h2>Videos</h2>
     <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
-      <iframe width="300" height="170" src="https://www.youtube.com/embed/YoHD9XEInc0" title="Trailer Oficial Inception" frameborder="0" allowfullscreen></iframe>
-      <iframe width="300" height="170" src="https://www.youtube.com/embed/8hP9D6kZseM" title="Trailer 2" frameborder="0" allowfullscreen></iframe>
-      <iframe width="300" height="170" src="https://www.youtube.com/embed/66TuSJo4dZM" title="Escenas" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/YoHD9XEInc0" title="Trailer Oficial" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/66TuSJo4dZM" title="Trailer 2" frameborder="0" allowfullscreen></iframe>
+      <iframe width="300" height="170" src="https://www.youtube.com/embed/8hP9D6kZseM" title="Final Trailer" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <h2>Fotos</h2>
     <div style="display: flex; gap: 15px; overflow-x: auto; margin-bottom: 30px;">
-      <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNl5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 1" />
-      <img src="https://m.media-amazon.com/images/M/MV5BNzA5ZDg2NjEtNzE0Zi00MTlkLWI2MDMtMWYzMTA2ODIxMTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 2" />
-      <img src="https://m.media-amazon.com/images/M/MV5BMjA0NDU2NTM0NF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 3" />
-      <img src="https://m.media-amazon.com/images/M/MV5BN2MzZjFkNjgtMjg5Yy00NzU0LWI0NGQtNzZkN2RkYjI3MGY0XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" style="height: 120px; border-radius: 5px;" alt="Inception Foto 4" />
+      <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODI5OTM0Mw@@._V1_.jpg" style="height: 120px; border-radius: 5px;" />
+      <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjY4MF5BMl5BanBnXkFtZTcwNzU1NzU0Mw@@._V1_.jpg" style="height: 120px; border-radius: 5px;" />
+      <img src="https://m.media-amazon.com/images/M/MV5BMTM2NjYxNzA5NV5BMl5BanBnXkFtZTcwODU4NjU0Mw@@._V1_.jpg" style="height: 120px; border-radius: 5px;" />
     </div>
 
-    <h2>Elenco principal</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
-      <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Leonardo_DiCaprio_66ème_Festival_de_Venise_%28Mostra%29.jpg" style="width: 100px; border-radius: 50%;" alt="Leonardo DiCaprio" /><br><strong>Leonardo DiCaprio</strong><br>Cobb</div>
-      <div><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Joseph_Gordon-Levitt_by_Gage_Skidmore_2.jpg" style="width: 100px; border-radius: 50%;" alt="Joseph Gordon-Levitt" /><br><strong>Joseph Gordon-Levitt</strong><br>Arthur</div>
-      <div><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Elliot_Page_2016.jpg" style="width: 100px; border-radius: 50%;" alt="Ellen Page" /><br><strong>Ellen Page</strong><br>Ariadne</div>
-      <div><img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Tom_Hardy_3,_2015.jpg" style="width: 100px; border-radius: 50%;" alt="Tom Hardy" /><br><strong>Tom Hardy</strong><br>Eames</div>
+    <h2>Califica esta película</h2>
+    <div id="rating-stars" style="font-size: 2rem; cursor: pointer;">
+      <span data-star="1">☆</span>
+      <span data-star="2">☆</span>
+      <span data-star="3">☆</span>
+      <span data-star="4">☆</span>
+      <span data-star="5">☆</span>
     </div>
+    <p id="rating-result" style="margin: 10px 0;"></p>
 
+    <h2>Comentarios</h2>
+    <div id="messages"></div>
+    <form id="message-form" autocomplete="off">
+      <input type="text" id="message" placeholder="Escribe un comentario" required />
+      <button type="submit">Enviar</button>
+    </form>
   </div>
 
   <footer class="site-footer">
     <div class="container">
       <p>© 2025 CineMatch. Todos los derechos reservados.</p>
       <p>
-        <a href="#">Términos y condiciones</a> |
-        <a href="#">Política de privacidad</a>
+        <a href="terminos.html">Términos y condiciones</a> |
+        <a href="privacidad.html">Política de privacidad</a>
       </p>
     </div>
   </footer>
+
+<script>
+  const registeredUsername = localStorage.getItem('loggedUser') || "UsuarioAnonimo";
+  const form = document.getElementById("message-form");
+  const messagesDiv = document.getElementById("messages");
+
+  // Cargar mensajes guardados en localStorage (si hay)
+  function loadMessages() {
+    const stored = localStorage.getItem('chatMessages');
+    if (!stored) return [];
+    try {
+      return JSON.parse(stored);
+    } catch {
+      return [];
+    }
+  }
+
+  // Guardar mensajes en localStorage
+  function saveMessages(messages) {
+    localStorage.setItem('chatMessages', JSON.stringify(messages));
+  }
+
+  // Renderizar mensajes en el div
+  function renderMessages(messages) {
+    messagesDiv.innerHTML = "";
+    messages.forEach(({ username, text }) => {
+      const messageElem = document.createElement("div");
+      messageElem.classList.add("message");
+
+      const userLink = document.createElement("a");
+      userLink.textContent = username;
+      userLink.href = `perfil.html?user=${encodeURIComponent(username)}`;
+      userLink.classList.add("username-link");
+      userLink.title = `Ver perfil de ${username}`;
+      userLink.target = "_blank";
+
+      const textSpan = document.createElement("span");
+      textSpan.textContent = ": " + text;
+
+      messageElem.appendChild(userLink);
+      messageElem.appendChild(textSpan);
+      messagesDiv.appendChild(messageElem);
+    });
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  // Inicializa mostrando mensajes existentes
+  let chatMessages = loadMessages();
+  renderMessages(chatMessages);
+
+  // Manejar nuevo mensaje
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const messageInput = document.getElementById("message");
+    const messageText = messageInput.value.trim();
+    if (messageText === "") return;
+
+    const newMessage = { username: registeredUsername, text: messageText };
+    chatMessages.push(newMessage);
+    saveMessages(chatMessages);
+    renderMessages(chatMessages);
+
+    messageInput.value = "";
+    messageInput.focus();
+  });
+
+  // Escuchar cambios en localStorage desde otras pestañas (para "chat en tiempo real")
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'chatMessages') {
+      chatMessages = loadMessages();
+      renderMessages(chatMessages);
+    }
+  });
+</script>
+<script>
+  const stars = document.querySelectorAll('.rating-stars .star');
+  let selectedRating = 0;
+
+  stars.forEach((star, index) => {
+    star.addEventListener('mouseover', () => {
+      highlightStars(index);
+    });
+
+    star.addEventListener('mouseout', () => {
+      highlightStars(selectedRating - 1);
+    });
+
+    star.addEventListener('click', () => {
+      selectedRating = index + 1;
+      highlightStars(index);
+      console.log("Rating seleccionado:", selectedRating);
+      // Aquí puedes guardar en localStorage o enviarlo a tu servidor
+    });
+  });
+
+  function highlightStars(index) {
+    stars.forEach((star, i) => {
+      star.classList.toggle('hover', i <= index);
+      star.classList.toggle('selected', i <= index);
+    });
+  }
+const ratingStars = document.getElementById("rating-stars");
+const ratingResult = document.getElementById("rating-result");
+
+function updateStarsDisplay(score) {
+  const starSpans = ratingStars.querySelectorAll("span");
+  starSpans.forEach((span, i) => {
+    span.textContent = (i < score) ? "★" : "☆";
+  });
+
+  ratingResult.textContent = score > 0
+    ? `Tu calificación: ${score} estrella${score > 1 ? "s" : ""}`
+    : "Tu calificación: No has calificado aún";
+}
+
+function getStoredRating(user) {
+  const ratings = JSON.parse(localStorage.getItem("movieRatings") || "{}");
+  return ratings[user] || 0;
+}
+
+function saveRating(user, rating) {
+  const ratings = JSON.parse(localStorage.getItem("movieRatings") || "{}");
+  ratings[user] = rating;
+  localStorage.setItem("movieRatings", JSON.stringify(ratings));
+}
+
+// Asegúrate de que esta variable exista en tu entorno
+let currentRating = getStoredRating(registeredUsername);
+updateStarsDisplay(currentRating);
+
+// Manejo de clic en estrellas
+ratingStars.addEventListener("click", (e) => {
+  if (e.target.tagName === "SPAN") {
+    const selectedStars = parseInt(e.target.getAttribute("data-star"));
+    currentRating = selectedStars;
+    updateStarsDisplay(currentRating);
+    saveRating(registeredUsername, currentRating);
+  }
+});
+
+
+</script>
 
 </body>
 </html>

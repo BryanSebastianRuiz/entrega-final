@@ -82,67 +82,84 @@ input:focus {
 </main>
 
 <script>
-  // Configuración de Supabase
+  // Obtener usuario de perfil desde URL
+  function getProfileUserIdFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('user') || null;
+  }
+
+  // Configuración Supabase
   const SUPABASE_URL = 'https://bkagpatfftjnxxldwzqm.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJrYWdwYXRmZnRqbnh4bGR3enFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyOTg1NDAsImV4cCI6MjA2Mzg3NDU0MH0.KZZlK_KNB6_Rq1Za2X9kk0uvZRuhpjtBv7D1KCLsgdY';
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // Cargar perfil al iniciar sesión
-  async function cargarPerfil() {
-    const { data: { user }, error } = await supabase.auth.getUser();
+  // Variables globales
+  let loggedUser = null;
+  let profileUserId = null;
 
-    if (error || !user) {
-      alert('No estás logueado.');
-      window.location.href = 'login.html';
-      return;
+  // Bloquear o permitir edición según usuario
+  function controlarEdicion() {
+    const formElements = document.querySelectorAll('#perfilForm input, #perfilForm button[type="submit"]');
+    if (loggedUser.id !== profileUserId) {
+      formElements.forEach(el => el.disabled = true);
+      alert('Estás viendo el perfil de otro usuario. No puedes editar su información.');
+    } else {
+      formElements.forEach(el => el.disabled = false);
     }
+  }
 
-    document.getElementById('nombreUsuario').textContent = 'Cargando...';
-    document.getElementById('correoUsuario').textContent = user.email;
-
-    // Obtener datos del perfil (incluye nombre)
+  // Cargar perfil del usuario dado
+  async function cargarPerfil(userId) {
+    // Obtener info del perfil
     const { data: perfil, error: errorPerfil } = await supabase
       .from('perfiles')
-      .select('nombre, biografia, edad, peliculasfavoritas')
-      .eq('id', user.id)
+      .select('nombre, biografia, edad, peliculasfavoritas, id')
+      .eq('id', userId)
       .single();
 
     if (errorPerfil) {
       console.error('Error cargando perfil:', errorPerfil);
-      document.getElementById('nombreUsuario').textContent = user.user_metadata?.full_name || user.email;
+      alert('No se pudo cargar el perfil solicitado.');
       return;
     }
 
-    // Mostrar nombre real, correo y llenar formulario
-    document.getElementById('nombreUsuario').textContent = perfil?.nombre || user.user_metadata?.full_name || user.email;
-
-    if (perfil) {
-      document.getElementById('nombre').value = perfil.nombre || '';
-      document.getElementById('biografia').value = perfil.biografia || '';
-      document.getElementById('edad').value = perfil.edad || '';
-      document.getElementById('peliculasfavoritas').value = perfil.peliculasfavoritas || '';
+    // Mostrar datos (nombre y correo si es usuario logueado)
+    if (userId === loggedUser.id) {
+      document.getElementById('nombreUsuario').textContent = perfil?.nombre || loggedUser.user_metadata?.full_name || loggedUser.email;
+      document.getElementById('correoUsuario').textContent = loggedUser.email;
+    } else {
+      // Para otros perfiles, sólo muestra nombre, correo no disponible
+      document.getElementById('nombreUsuario').textContent = perfil?.nombre || 'Usuario';
+      document.getElementById('correoUsuario').textContent = 'No disponible';
     }
+
+    // Rellenar formulario (si es tu perfil)
+    document.getElementById('nombre').value = perfil?.nombre || '';
+    document.getElementById('biografia').value = perfil?.biografia || '';
+    document.getElementById('edad').value = perfil?.edad || '';
+    document.getElementById('peliculasfavoritas').value = perfil?.peliculasfavoritas || '';
+
+    controlarEdicion();
   }
 
-  // Guardar cambios
+  // Evento submit para guardar cambios (solo si es tu perfil)
   document.getElementById('perfilForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (loggedUser.id !== profileUserId) {
+      alert('No puedes editar el perfil de otro usuario.');
+      return;
+    }
 
     const nombre = document.getElementById('nombre').value.trim();
     const biografia = document.getElementById('biografia').value.trim();
     const edad = parseInt(document.getElementById('edad').value);
     const peliculasFavoritas = document.getElementById('peliculasfavoritas').value.trim();
 
-    const { data: { user }, error } = await supabase.auth.getUser();
-    if (error || !user) {
-      alert('Usuario no autenticado');
-      return;
-    }
-
     const { error: upsertError } = await supabase
       .from('perfiles')
       .upsert({
-        id: user.id,
+        id: loggedUser.id,
         nombre,
         biografia,
         edad,
@@ -153,31 +170,38 @@ input:focus {
       alert('Error al guardar: ' + upsertError.message);
     } else {
       alert('Perfil actualizado con éxito');
-      document.getElementById('nombreUsuario').textContent = nombre || user.email;
+      document.getElementById('nombreUsuario').textContent = nombre || loggedUser.email;
     }
   });
 
-  // Cerrar sesión
+  // Logout
   document.getElementById('btnLogout').addEventListener('click', async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
       alert('Error al cerrar sesión: ' + error.message);
-    } else {  
+    } else {
       alert('Has cerrado sesión correctamente.');
       window.location.href = 'login.html';
     }
   });
 
-  // Verifica si hay usuario logueado al cargar la página
+  // Al cargar la página
   document.addEventListener('DOMContentLoaded', async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
+    const { data: { user }, error } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      alert('No estás logueado.');
       window.location.href = 'login.html';
-    } else {
-      cargarPerfil();
+      return;
     }
+
+    loggedUser = user;
+    profileUserId = getProfileUserIdFromURL() || loggedUser.id;
+
+    await cargarPerfil(profileUserId);
   });
 </script>
+
 
 </body>
 </html>
